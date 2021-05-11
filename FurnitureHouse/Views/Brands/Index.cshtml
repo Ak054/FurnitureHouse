@@ -1,0 +1,51 @@
+﻿@model IEnumerable<FurnitureHouse.Models.Brand>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="text-center">All Brand Details</h1>
+<p>
+    <a class="btn btn-primary" asp-action="Create">Add New Brand</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Brand Cover Photo
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BrandName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Traits)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Material)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <img src="~/brands/@item.BrandID@item.Extension" width="150px" height="150px" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BrandName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Traits)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Material)
+            </td>
+            <td>
+                <a asp-action="Edit" class="btn btn-secondary" asp-route-id="@item.BrandID">Edit</a> |
+                <a asp-action="Delete" class="btn btn-danger" asp-route-id="@item.BrandID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

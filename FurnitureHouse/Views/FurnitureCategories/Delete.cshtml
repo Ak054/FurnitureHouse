@@ -1,0 +1,24 @@
+﻿@model FurnitureHouse.Models.FurnitureCategory
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="text-center">Delete Furniture Category Details</h1>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FurnitureCategoryName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FurnitureCategoryName)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="FurnitureCategoryID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">View All Furniture Category</a>
+    </form>
+</div>

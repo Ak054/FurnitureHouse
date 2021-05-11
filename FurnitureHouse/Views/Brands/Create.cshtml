@@ -1,0 +1,53 @@
+﻿@model FurnitureHouse.Models.Brand
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="text-center">Add New Brand</h1>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="BrandName" class="control-label"></label>
+                <input asp-for="BrandName" class="form-control" />
+                <span asp-validation-for="BrandName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Traits" class="control-label"></label>
+                <input asp-for="Traits" class="form-control" />
+                <span asp-validation-for="Traits" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Material" class="control-label"></label>
+                <input asp-for="Material" class="form-control" />
+                <span asp-validation-for="Material" class="text-danger"></span>
+            </div>
+
+            <div class="custom-file mb-3">
+                <input asp-for="File.FormFile" type="file" class="custom-file-input" id="customFile">
+                <label asp-for="File.FormFile" class="custom-file-label">Choose Any Image File</label>
+                <span asp-validation-for="File.FormFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add New Brand" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">View All Brand</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<script>
+        $(".custom-file-input").on("change", function () {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+</script>
+}

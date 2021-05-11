@@ -1,0 +1,38 @@
+﻿@model FurnitureHouse.Models.FurnitureSubCategory
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="text-center">Edit Furniture Sub Category Details</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="FurnitureSubCategoryID" />
+            <div class="form-group">
+                <label asp-for="FurnitureSubCategoryName" class="control-label"></label>
+                <input asp-for="FurnitureSubCategoryName" class="form-control" />
+                <span asp-validation-for="FurnitureSubCategoryName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FurnitureCategoryID" class="control-label"></label>
+                <select asp-for="FurnitureCategoryID" class="form-control" asp-items="ViewBag.FurnitureCategoryID"></select>
+                <span asp-validation-for="FurnitureCategoryID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save Furniture Sub Category Details" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">View All Furniture Sub Category</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<FurnitureHouse.Models.Brand>
+
+@{
+    ViewData["Title"] = "AllBrands";
+}
+<div class="text-center">
+    <h1 class="display-4 heading">All Furniture Brands</h1>
+</div>
+<hr />
+<div class="row" style="margin-bottom:50px;">
+    @foreach (var item in Model)
+    {
+    <div class="col-md-6 mb-3">
+        <div class="card w-100">
+            <center>
+                <img src="~/brands/@item.BrandID@item.Extension" alt="" style="width:100%">
+            </center>
+            <div class="card-body">
+                <h5 class="card-text">
+                    @item.BrandName
+                </h5>
+                <p><strong>Traits:</strong> @item.Traits</p>
+                <p><strong>Material:</strong> @item.Material</p>
+                <a class="btn btn-dark btn-block" asp-action="ViewFurniture" asp-route-id="@item.BrandID">View Furnitures</a>
+            </div>
+
+        </div>
+    </div>
+            
+    }
+</div>

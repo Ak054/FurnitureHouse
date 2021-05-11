@@ -1,0 +1,16 @@
+﻿@model List<FurnitureHouse.Models.FurnitureCategory>
+@foreach (var item in Model)
+{
+<li class="nav-item dropdown">
+    <a class="nav-link  text-white dropdown-toggle" href="#" id="@string.Format("#dropdown0{0}",item.FurnitureCategoryID)" 
+       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">@item.FurnitureCategoryName</a>
+    <div class="dropdown-menu" aria-labelledby="@string.Format("#dropdown0{0}",item.FurnitureCategoryID)">
+        @foreach (var itm in item.FurnitureSubCategories)
+        {
+            <a class="dropdown-item" asp-area="" asp-controller="Home"
+               asp-action="ViewSubFurniture" asp-route-id="@itm.FurnitureSubCategoryID"
+               >@itm.FurnitureSubCategoryName</a>
+        }
+    </div>
+</li>
+}

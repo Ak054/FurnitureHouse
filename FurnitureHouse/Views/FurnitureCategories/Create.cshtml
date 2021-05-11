@@ -1,0 +1,31 @@
+﻿@model FurnitureHouse.Models.FurnitureCategory
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="text-center">Add New Furniture Category</h1>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FurnitureCategoryName" class="control-label"></label>
+                <input asp-for="FurnitureCategoryName" class="form-control" />
+                <span asp-validation-for="FurnitureCategoryName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save Furniture Category Details" class="btn btn-dark" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">View All Furniture Category</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
